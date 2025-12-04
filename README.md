@@ -52,11 +52,9 @@ Proyek ini berisi tiga halaman utama:
 - JavaScript
 - Font Awesome (ikon)
 
-## Iklan
+## Project
 
-Proyek ini dilengkapi dengan penempatan iklan:
-- Iklan muncul di bawah konten utama
-- Iklan diperbarui secara otomatis setiap 10 detik
+Project dapat anda lihat di 
 
 ## Kontribusi
 
