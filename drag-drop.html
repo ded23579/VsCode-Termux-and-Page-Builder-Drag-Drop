@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Deployment - Dedi IR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            vertical-align: middle;
+            height: auto;
+        }
+
+        .slider-nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+        .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <nav>
+                <ul class="navlinks">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="vscode-termux.html">Visual Studio Code Termux</a></li>
+                    <li><a href="drag-drop.html">Drag and Drop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Slider Gambar Otomatis -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/Drg1.jpg" alt="Drag and Drop Interface 1">
+            </div>
+            <div class="slide">
+                <img src="images/Drg2.jpg" alt="Drag and Drop Interface 2">
+            </div>
+            
+        </div>
+        <div class="slider-nav">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <h1 style="color: #222; font-size: 2.5rem; text-align: center; margin: 80px 0 30px 0;">Drag and Drop Deployment</h1>
+
+        <div class="content-wrapper">
+            <p>Drag and Drop Deployment adalah metode praktis untuk deploy website Anda ke layanan hosting. Dengan pendekatan ini, Anda bisa dengan mudah mengunggah file-file website Anda tanpa harus menggunakan FTP atau command line.</p>
+
+            <p>Drag and Drop Builder adalah alat pembuatan halaman web yang memungkinkan Anda membuat tampilan halaman hanya dengan menyeret (drag) elemen-elemen yang tersedia dan meletakkannya (drop) di area desain. Ini adalah cara yang sangat mudah dan visual untuk membuat halaman web tanpa harus menulis kode secara manual.</p>
+
+            <h2>Kelebihan Drag and Drop Deployment</h2>
+            <ul>
+                <li>Deployment cepat dan mudah tanpa perlu software tambahan</li>
+                <li>Antarmuka yang sederhana dan intuitif</li>
+                <li>Tidak perlu menginstal FTP client</li>
+                <li>Cocok untuk perubahan cepat dan perbaikan kecil</li>
+                <li>Dapat digunakan dari berbagai perangkat</li>
+            </ul>
+
+            <h2>Tools untuk Drag and Drop Deployment</h2>
+            <p>Beberapa tool dan platform yang mendukung drag and drop deployment:</p>
+            <ul>
+                <li>InfinityFree dengan file manager built-in</li>
+                <li>GitHub Pages dengan GitHub Desktop</li>
+                <li>Netlify Drop Zone</li>
+                <li>Vercel Drag and Drop</li>
+                <li>Platform lain dengan interface web-based</li>
+            </ul>
+
+            <h2>Cara Menggunakan</h2>
+            <p>Menggunakan builder ini sangat mudah:</p>
+            <ul>
+                <li>Buka halaman web <a href="https://drag-and-drop.page.gd" target="_blank">https://drag-and-drop.page.gd</a></li>
+                <li>Di sisi kanan halaman, Anda akan melihat berbagai elemen yang bisa digunakan seperti teks, gambar, tombol, dll.</li>
+                <li>Seret elemen-elemen tersebut ke area desain di sebelah kiri</li>
+                <li>Setelah meletakkan elemen, Anda bisa mengeditnya langsung dengan fitur visual yang tersedia</li>
+                <li>Semua perubahan dapat dilihat secara langsung tanpa perlu menulis kode</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Keunggulan Visual Interface</h2>
+            <p>Kelebihan menggunakan antarmuka visual adalah:</p>
+            <ul>
+                <li><strong>Tidak memerlukan pengetahuan pemrograman</strong> - Anda bisa membuat halaman web tanpa menulis satu baris kode pun</li>
+                <li><strong>Hasil langsung terlihat</strong> - Apa yang Anda lihat adalah apa yang akan Anda dapatkan (WYSIWYG)</li>
+                <li><strong>Mudah diedit</strong> - Cukup klik dan ubah konten, warna, ukuran, atau properti lainnya</li>
+                <li><strong>Cepat dan efisien</strong> - Membuat halaman web hanya dalam beberapa menit</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Teknologi yang Digunakan</h2>
+            <p>Berikut adalah teknologi yang digunakan dalam platform ini:</p>
+            <ul>
+                <li><strong>Backend Framework:</strong> Laravel</li>
+                <li><strong>Template Engine:</strong> Blade</li>
+                <li><strong>Frontend Libraries:</strong> React, GrapeJS</li>
+                <li><strong>CSS Framework:</strong> Tailwind CSS, Bootstrap</li>
+                <li><strong>Runtime:</strong> Node.js</li>
+                <li><strong>Authentication:</strong> SLSA Generic</li>
+                <li><strong>Bahasa Pemrograman:</strong> PHP, JavaScript, HTML, CSS</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Kesimpulan</h2>
+            <p>Platform drag-and-drop ini memberikan solusi yang sangat mudah bagi pemula untuk membuat halaman web yang profesional. Tanpa perlu memahami coding, Anda bisa menciptakan halaman web yang menarik hanya dengan menyeret dan meletakkan elemen-elemen yang tersedia.</p>
+        </div>
+
+        <div id="sticky-ad" style="text-align: center; margin: 20px auto; max-width: 728px;">
+            <script type="text/javascript">
+              atOptions = {
+              'key' : '6d31c8a2fb25ec112b9cc104aff6751a',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+              };
+            </script>
+            <script
+              type="text/javascript"
+              src="//intermediategillsevent.com/6d31c8a2fb25ec112b9cc104aff6751a/invoke.js"
+            ></script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Drag and Drop page loaded successfully!');
+
+            // Cek apakah elemen drag-area, file-input, dan browse-btn tersedia di DOM
+            const dragArea = document.getElementById('drag-area');
+            const fileInput = document.getElementById('file-input');
+            const browseBtn = document.getElementById('browse-btn');
+
+            if(dragArea && fileInput && browseBtn) {
+                // Event listeners untuk drag and drop (hanya jika elemen tersedia)
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    dragArea.addEventListener(eventName, preventDefaults, false);
+                });
+
+                function preventDefaults(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    dragArea.addEventListener(eventName, highlight, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                    dragArea.addEventListener(eventName, unhighlight, false);
+                });
+
+                function highlight(e) {
+                    dragArea.classList.add('active');
+                }
+
+                function unhighlight(e) {
+                    dragArea.classList.remove('active');
+                }
+
+                // Handle drop event
+                dragArea.addEventListener('drop', handleDrop, false);
+
+                function handleDrop(e) {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+
+                    handleFiles(files);
+                }
+
+                // Handle click pada area drag
+                dragArea.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                // Handle click pada tombol browse
+                browseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fileInput.click();
+                });
+
+                // Handle file input change
+                fileInput.addEventListener('change', function() {
+                    handleFiles(this.files);
+                });
+            }
+
+            function handleFiles(files) {
+                const fileArray = Array.from(files);
+
+                if (fileArray.length === 0) return;
+
+                // Tampilkan nama file
+                alert(`${fileArray.length} file dipilih. Dalam implementasi asli, file akan diupload ke server.`);
+
+                // Di sini Anda akan menambahkan logika upload sebenarnya
+                console.log("File akan diupload:", fileArray);
+            }
+
+            // Fungsi untuk slider otomatis
+            let slideIndex = 1;
+            const totalSlides = 4;
+
+            // Menampilkan slide tertentu
+            function showSlide(index) {
+                const slides = document.querySelectorAll('.slide');
+                const dots = document.querySelectorAll('.dot');
+
+                // Sembunyikan semua slide
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                // Tampilkan slide yang aktif
+                if (slides[index - 1] && dots[index - 1]) {
+                    slides[index - 1].classList.add('active');
+                    dots[index - 1].classList.add('active');
+                }
+            }
+
+            // Fungsi untuk pergi ke slide tertentu
+            function currentSlide(index) {
+                slideIndex = index;
+                showSlide(index);
+
+                // Reset timer otomatis
+                resetSlideTimer();
+            }
+
+            // Fungsi untuk slide berikutnya
+            function nextSlide() {
+                slideIndex++;
+                if (slideIndex > totalSlides) {
+                    slideIndex = 1;
+                }
+                showSlide(slideIndex);
+            }
+
+            // Timer otomatis
+            let slideTimer;
+            function startSlideTimer() {
+                slideTimer = setInterval(() => {
+                    nextSlide();
+                }, 5000); // Ganti slide setiap 5 detik
+            }
+
+            // Reset timer
+            function resetSlideTimer() {
+                clearInterval(slideTimer);
+                startSlideTimer();
+            }
+
+            // Mulai timer saat halaman dimuat
+            startSlideTimer();
+        });
+    </script>
+
+    <script>
+        // Auto-refresh iklan setiap 10 detik
+        setInterval(function() {
+            var adContainer = document.getElementById('sticky-ad');
+            if (adContainer) {
+                // Ganti konten iklan dengan skrip yang baru
+                var newScript1 = document.createElement('script');
+                newScript1.type = 'text/javascript';
+                newScript1.innerHTML = `
+                  atOptions = {
+                  'key' : '6d31c8a2fb25ec112b9cc104aff6751a',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                  };
+                `;
+
+                var newScript2 = document.createElement('script');
+                newScript2.type = 'text/javascript';
+                newScript2.src = '//intermediategillsevent.com/6d31c8a2fb25ec112b9cc104aff6751a/invoke.js';
+
+                // Kosongkan kontainer iklan dan tambahkan skrip baru
+                adContainer.innerHTML = '';
+                adContainer.appendChild(newScript1);
+                adContainer.appendChild(newScript2);
+            }
+        }, 10000); // 10 detik
+    </script>
+</body>
+</html>

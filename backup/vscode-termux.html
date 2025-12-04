@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Studio Code di Termux - Dedi IR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            vertical-align: middle;
+            height: auto;
+        }
+
+        .slider-nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+        .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <nav>
+                <ul class="navlinks">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="vscode-termux.html">Visual Studio Code Termux</a></li>
+                    <li><a href="drag-drop.html">Drag and Drop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Slider Gambar Otomatis -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/Vs1.jpg" alt="VS Code di Termux 1">
+            </div>
+            <div class="slide">
+                <img src="images/Vs2.jpg" alt="VS Code di Termux 2">
+            </div>
+            <div class="slide">
+                <img src="images/Vs3.jpg" alt="VS Code di Termux 3">
+            </div>
+        </div>
+        <div class="slider-nav">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <h1 style="color: #222; font-size: 2.5rem; text-align: center; margin: 80px 0 30px 0;">Visual Studio Code di Termux</h1>
+
+        <div class="content-wrapper">
+            <p>Visual Studio Code (VS Code) adalah editor teks sumber yang dikembangkan oleh Microsoft untuk Windows, Linux dan macOS. Namun, karena Termux adalah lingkungan Linux ringan untuk Android, kita tidak dapat langsung menginstal VS Code secara native. Untungnya, ada beberapa cara untuk mendapatkan pengalaman VS Code di Termux.</p>
+
+            <h2>Metode 1: Menggunakan VSCodium di Termux</h2>
+            <p>Langkah-langkah instalasi VSCodium:</p>
+            <ol>
+                <li>Buka Termux Anda</li>
+                <li>Perbarui packages:</li>
+            </ol>
+
+            <div class="terminal" style="background-color: #222; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0;">
+                <span class="command" style="color: #8be9fd;">pkg update -y && pkg upgrade -y</span><br>
+                
+            </div>
+
+            <ol start="3">
+                <li>Instalasi Paket Pendukung:</li>
+            </ol>
+
+            <div class="terminal" style="background-color: #222; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0;">
+                <span class="command" style="color: #8be9fd;">pkg install x11-repo<br>
+            pkg install termux-x11-nightly<br>
+            pkg install tur-repo<br>
+            pkg install pulseaudio<br>
+            pkg install proot-distro<br>
+            pkg install wget<br>
+            pkg install git<br>
+            pkg install android-tools<br>
+            pkg install code-server</span>
+            </div>
+
+            <ol start="4">
+                <li>Instalasi Bootstrap (Opsional):</li>
+            </ol>
+
+            <div class="terminal" style="background-color: #222; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0;">
+                <span class="command" style="color: #8be9fd;">pkg install proot-distro wget git -y<br>
+            pkg install proot-distro wget tar proot -y</span>
+            </div>
+
+            <ol start="5">
+                <li>Konfigurasi dan Menjalankan VS Code</li>
+                <p>Setelah instalasi selesai, jalankan perintah berikut untuk memulai VS Code:</p>
+            </ol>
+
+            <div class="terminal" style="background-color: #222; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0;">
+                <span class="command" style="color: #8be9fd;">code-server --auth none --disable-telemetry</span><br>
+            </div>
+
+            <ol start="6">
+                <li>Akses VS Code</li>
+                <p>Setelah menjalankan perintah di atas, buka browser Anda dan kunjungi:</p>
+            </ol>
+
+            <div class="terminal" style="background-color: #222; color: #f8f8f2; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0;">
+                <span class="command" style="color: #8be9fd;">127.0.0.1:8080</span><br>
+            </div>
+
+            
+            <div class="image-container" style="text-align: center; margin: 30px 0;">
+                <div class="placeholder-image" style="width: 100%; max-width: 600px; height: 300px; background-color: #e0e0e0; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 20px auto; border: 1px dashed #aaa;">
+                    <span style="color: #777; font-style: italic;">[Gambar ilustrasi instalasi VS Code di Termux]</span>
+                </div>
+                <p>Gambar ilustrasi proses instalasi VS Code di Termux</p>
+            </div>
+
+            <h2>Kelebihan dan Kekurangan Menggunakan VS Code di Termux</h2>
+
+            <h3>Kelebihan:</h3>
+            <ul>
+                <li>Dapat mengembangkan aplikasi dari perangkat Android</li>
+                <li>Pengalaman editing yang lengkap dengan fitur VS Code</li>
+                <li>Dapat mengakses sistem file dan terminal langsung</li>
+                <li>Tidak perlu laptop atau komputer</li>
+                <li>Dapat menginstal ekstensi seperti Visual Studio Code di desktop</li>
+            <li>Dapat mengakses file di sistem Termux</li>
+            <li>Dapat menjalankan berbagai bahasa pemrograman</li>
+            <li>Antarmuka pengguna yang familiar seperti VS Code di desktop</li>
+            </ul>
+
+            <h3>Kekurangan:</h3>
+            <ul>
+                <li>Kinerja mungkin lebih lambat dibandingkan di laptop</li>
+                <li>Butuh sedikit konfigurasi untuk mengatur sepenuhnya</li>
+                <li>Tidak semua ekstensi mungkin bekerja optimal</li>
+                <li>Kebutuhan ruang penyimpanan dan RAM lebih tinggi</li>
+            </ul>
+
+            <h2>Rekomendasi Konfigurasi</h2>
+            <p>Untuk pengalaman terbaik:</p>
+            <ul>
+                <li>Gunakan perangkat dengan RAM minimal 4GB</li>
+                <li>Pastikan memiliki koneksi internet stabil saat pertama kali menginstal</li>
+                <li>Pertimbangkan untuk menggunakan keyboard eksternal untuk produktivitas yang lebih baik</li>
+                <li>Gunakan aplikasi Termux:Widget untuk mengakses skrip dengan cepat</li>
+            </ul>
+                    <h2>Penjelasan Tambahan</h2>
+        <h3>Mengenai <span class="highlight">--auth none</span></h3>
+        <p>Flag ini digunakan untuk menonaktifkan autentikasi, sehingga tidak perlu login untuk mengakses VS Code. Jika digunakan dalam jaringan publik, ini bisa menjadi risiko keamanan.</p>
+
+        <h3>Mengenai <span class="highlight">--disable-telemetry</span></h3>
+        <p>Flag ini digunakan untuk menonaktifkan pengiriman data telemetri ke Microsoft.</p>
+
+        <h3>Untuk Menghentikan code-server</h3>
+        <p>Gunakan <span class="highlight">Ctrl + C</span> di terminal untuk menghentikan server.</p>
+
+        <h3>Menjalankan code-server sebagai background process</h3>
+        <p>Jika ingin menjalankan code-server tanpa harus membuka terminal terus-menerus, gunakan perintah:</p>
+        <div class="command">code-server --auth none --disable-telemetry &</div>
+        <p>Tanda <span class="highlight">&</span> di akhir perintah akan menjalankan proses di background.</p>
+
+        <h3>Mengakses melalui jaringan lokal</h3>
+        <p>Jika ingin mengakses VS Code dari perangkat lain di jaringan yang sama, ganti <span class="highlight">127.0.0.1</span> dengan IP lokal Anda.</p>
+
+        <div class="note">
+            <h3>Troubleshooting</h3>
+            <p><strong>Jika code-server tidak dapat diakses:</strong> Pastikan tidak ada proses code-server lain yang sedang berjalan. Periksa apakah port 8080 sudah digunakan aplikasi lain.</p>
+            
+            <p><strong>Jika ekstensi tidak dapat diinstal:</strong> Pastikan koneksi internet stabil. Coba restart code-server jika ekstensi tidak muncul setelah instalasi.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('VS Code Termux page loaded successfully!');
+
+            // Menyorot perintah terminal saat diklik
+            const commands = document.querySelectorAll('.terminal .command');
+            commands.forEach(cmd => {
+                cmd.style.cursor = 'copy';
+                cmd.addEventListener('click', function() {
+                    navigator.clipboard.writeText(this.textContent).then(() => {
+                        const original = this.textContent;
+                        this.textContent = 'Disalin!';
+                        setTimeout(() => {
+                            this.textContent = original;
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Script untuk slider otomatis -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let slideIndex = 1;
+            const totalSlides = 4;
+
+            // Menampilkan slide tertentu
+            function showSlide(index) {
+                const slides = document.querySelectorAll('.slide');
+                const dots = document.querySelectorAll('.dot');
+
+                // Sembunyikan semua slide
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                // Tampilkan slide yang aktif
+                if (slides[index - 1] && dots[index - 1]) {
+                    slides[index - 1].classList.add('active');
+                    dots[index - 1].classList.add('active');
+                }
+            }
+
+            // Fungsi untuk pergi ke slide tertentu
+            function currentSlide(index) {
+                slideIndex = index;
+                showSlide(index);
+
+                // Reset timer otomatis
+                resetSlideTimer();
+            }
+
+            // Fungsi untuk slide berikutnya
+            function nextSlide() {
+                slideIndex++;
+                if (slideIndex > totalSlides) {
+                    slideIndex = 1;
+                }
+                showSlide(slideIndex);
+            }
+
+            // Timer otomatis
+            let slideTimer;
+            function startSlideTimer() {
+                slideTimer = setInterval(() => {
+                    nextSlide();
+                }, 5000); // Ganti slide setiap 5 detik
+            }
+
+            // Reset timer
+            function resetSlideTimer() {
+                clearInterval(slideTimer);
+                startSlideTimer();
+            }
+
+            // Mulai timer saat halaman dimuat
+            startSlideTimer();
+        });
+    </script>
+</body>
+</html>
