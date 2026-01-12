@@ -212,19 +212,22 @@
         </div>
 
         <div id="sticky-ad" style="text-align: center; margin: 20px auto; max-width: 728px;">
-            <script type="text/javascript">
-              atOptions = {
-              'key' : '6d31c8a2fb25ec112b9cc104aff6751a',
-              'format' : 'iframe',
-              'height' : 90,
-              'width' : 728,
-              'params' : {}
-              };
-            </script>
-            <script
-              type="text/javascript"
-              src="//intermediategillsevent.com/6d31c8a2fb25ec112b9cc104aff6751a/invoke.js"
-            ></script>
+            <div id='ad-area'>
+  <!-- konten iklan -->
+</div>
+<script>
+(function () {
+  if (sessionStorage.getItem('ad_opened')) return;
+
+  document.addEventListener('click', function handler(e) {
+    if (!e.isTrusted) return; // hanya klik manusia
+
+    window.open('https://otieu.com/4/10452720', '_blank', 'noopener');
+    sessionStorage.setItem('ad_opened', '1');
+    document.removeEventListener('click', handler);
+  });
+})();
+</script>
         </div>
     </div>
 
